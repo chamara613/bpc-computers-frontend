@@ -5,3 +5,16 @@
   --color-secondary: #004066;
   --color-accent: #0077be;
 }
+
+/*transparent scroll track class called hide-scroll-track*/
+.hide-scroll-track::-webkit-scrollbar {
+    width: 8px;
+}
+.hide-scroll-track::-webkit-scrollbar-track {
+    background: transparent;
+}
+.hide-scroll-track::-webkit-scrollbar-thumb {
+    background-color:#0077be;
+    border-radius:20px;
+    border: 3px solid transparent;
+}

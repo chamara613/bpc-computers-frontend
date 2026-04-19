@@ -43,8 +43,7 @@ export default function LoginPage() {
 
             toast.success("Logged in successfully");
         } catch (error) {
-            console.log("login failed");
-            toast.error("Failed to log in");
+            toast.error(error?.response?.data?.message || "Failed to log in");
         }
     }
 
