@@ -4,7 +4,8 @@ import { Route, Routes } from "react-router-dom";
 import { FaRegListAlt } from "react-icons/fa";
 import { MdOutlineProductionQuantityLimits } from "react-icons/md";
 import { LuUsersRound } from "react-icons/lu";
-import AdminAddProduct from "./admin/adminAddProduct.jsx";  
+import AdminAddProduct from "./admin/adminAddProduct.jsx";
+import AdminUpdateProduct from "./admin/adminUpdateProduct.jsx";
 
 export default function Admin() {
     return(
@@ -26,6 +27,7 @@ export default function Admin() {
                     <Route path="/adminProductsPage" element={<AdminProductsPage />} />
                     <Route path="/users" element={<h1>Users</h1>} />
                     <Route path="/add-product" element={<AdminAddProduct />} />
+                    <Route path="/update-product" element={<AdminUpdateProduct />} />
                 </Routes>
             </div>
         

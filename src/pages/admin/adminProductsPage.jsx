@@ -4,22 +4,16 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import getFormattedPrice from "../../utils/price-format.js";
 import axios from "axios";
+import { RiEdit2Line } from "react-icons/ri";
+import { CiTrash } from "react-icons/ci";
+import toast from "react-hot-toast";
 
 const  sampleProductsList = [
-    {
-    productId: "P001",
-    name: "Dell Inspiron 15 Laptop",
-    description: "15.6-inch laptop with Intel Core i5 processor, 8GB RAM, and 512GB SSD.",
-    altNames: ["Dell Laptop", "Inspiron 15", "Dell i5 Laptop"],
-    price: 185000,
-    laballedprice: 195000,
-    category: "Laptops",
-    isVisible: true
-  }
 ];
 
 export default function AdminProductsPage() {
     const [products, setProducts] = useState(sampleProductsList);
+    const [loading, setLoading] = useState(false)
     useEffect(()=>{
         const token = localStorage.getItem("token");
 
@@ -35,12 +29,12 @@ export default function AdminProductsPage() {
         .catch((error) => {
             console.error("Error fetching products:", error);
         });
-    },[])
+    },[loading])
 
     return(
         <div className="w-full max-h-full flex flex-wrap items-start overflow-y-scroll">
 
-  <div className="rounded-3xl bg-slate-100/80 p-6">
+  <div className=" w-full rounded-3xl bg-slate-100/80 p-6">
     
     <div className="mb-6 flex items-center justify-between sticky top-0 bg-white">
       <div>
@@ -74,6 +68,7 @@ export default function AdminProductsPage() {
               <th className="px-6 py-4">Image</th>
               <th className="px-6 py-4">Brand</th>
               <th className="px-6 py-4">Visibility</th>
+              <th className="px-6 py-4">Actions</th>
             </tr>
           </thead>
 
@@ -151,6 +146,38 @@ export default function AdminProductsPage() {
                     {item.isVisible ? "Visible" : "Hidden"}
                   </span>
                 </td>
+                <td className="px-6 py-4">
+                  <div className="flex justify-center items-center text-2xl gap-2">
+                  <Link
+                      to="/admin/update-product"
+                      state={item}
+                      className="hover:text-accent"
+                  ><RiEdit2Line />
+                  </Link>
+                  <CiTrash className="hover:text-red-500 cursor-pointer"
+                  onClick={
+                      ()=>{
+                          const token = localStorage.getItem("token");
+                          axios.delete(import.meta.env.VITE_API_URL + "/products/"+item.productId,{
+                            headers:{
+                              Authorization: "Bearer "+token
+                            }
+                          }).then(
+                            ()=>{
+                              toast.success("Product deleted successfully");
+                              setLoading(true)
+                            }
+                          ).catch(
+                            (err)=>{
+                              toast.error(err?.response?.data?.message || "Failed to delect product");
+                            }
+                          )
+                          }
+                    
+                  }/>
+                  </div>
+                </td>
+                
               </tr>
             ))}
           </tbody>
