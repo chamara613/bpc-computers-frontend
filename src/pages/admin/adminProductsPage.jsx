@@ -115,7 +115,7 @@ export default function AdminProductsPage() {
                   </td>
 
                   <td className="px-6 py-4 text-sm font-semibold text-[var(--color-secondary)]">
-                    <span>{getFormattedPrice(item.laballedprice)}</span>
+                    <span>{getFormattedPrice(item.labelledPrice)}</span>
                   </td>
 
                   <td className="px-6 py-4">

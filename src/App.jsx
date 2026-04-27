@@ -14,7 +14,7 @@ function App() {
     <div className="bg-primary flex h-screen w-full text-tertiary">
       <Toaster position="top-right"/>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/*" element={<HomePage />} />
         <Route path="/admin/*" element={<Admin />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/test" element={<Test />} />

@@ -43,12 +43,14 @@ export default function AdminUpdateProduct() {
             }
 
             let imageURLs =  await Promise.all(fileUploadPromises);
-            
 
             if(imageURLs.length == 0){
                 imageURLs = location.state.images
             }
+            console.log(imageURLs);
 
+            console.log("Files:", files);
+            console.log("Files length:", files.length);
 
             await axios.put("http://localhost:3000/api/products/"+productId, {
                 productId: productId,
@@ -68,6 +70,7 @@ export default function AdminUpdateProduct() {
                 }
             })
             toast.success("Product Update successfully");
+            navigate("/admin/adminProductsPage");
             
             
         } catch (error) {
@@ -147,7 +150,9 @@ export default function AdminUpdateProduct() {
             </select>
             </div>
             <div className="bg-white w-full h-20 sticky bottom-0 flex rounded-bottom-2xl items-center justify-end p-4 gap-4">
-                <button className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 ml-2">Cancel</button>
+                <button 
+                    onClick={() => navigate("/admin/adminProductsPage")}
+                    className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 ml-2">Cancel</button>
                 <button onClick={handleUpdateProduct} className="bg-accent text-white px-4 py-2 rounded hover:bg-gray-300">Update Product</button>
                 
 

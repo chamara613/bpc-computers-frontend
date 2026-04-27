@@ -38,8 +38,7 @@ export default function AdminAddProduct() {
             }
 
             const imageURLs =  await Promise.all(fileUploadPromises);
-            console.log(imageURLs);
-
+           
             
 
             await axios.post("http://localhost:3000/api/products", {
@@ -60,6 +59,7 @@ export default function AdminAddProduct() {
                 }
             })
             toast.success("Product added successfully");
+            navigate("/admin/adminProductsPage");
             
             
         } catch (error) {
@@ -139,7 +139,9 @@ export default function AdminAddProduct() {
             </select>
             </div>
             <div className="bg-white w-full h-20 sticky bottom-0 flex rounded-bottom-2xl items-center justify-end p-4 gap-4">
-                <button className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 ml-2">Cancel</button>
+                <button 
+                    onClick={() => navigate("/admin/adminProductsPage")}
+                    className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 ml-2">Cancel</button>
                 <button onClick={handleAddProduct} className="bg-accent text-white px-4 py-2 rounded hover:bg-gray-300">Add Product</button>
                 
 
