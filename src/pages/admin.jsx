@@ -6,6 +6,7 @@ import { MdOutlineProductionQuantityLimits } from "react-icons/md";
 import { LuUsersRound } from "react-icons/lu";
 import AdminAddProduct from "./admin/adminAddProduct.jsx";
 import AdminUpdateProduct from "./admin/adminUpdateProduct.jsx";
+import AdminOrdersPage from "./admin/adminOrdersPage.jsx";
 
 export default function Admin() {
     return(
@@ -23,7 +24,7 @@ export default function Admin() {
             <div className="w-[calc(100%-300px)] h-full p-4 rounded-2xl bg-white border-8 border-accent">
            
                 <Routes>
-                    <Route path="/orders" element={<h1>Orders page fuck you</h1>} />
+                    <Route path="/orders" element={<AdminOrdersPage/>} />
                     <Route path="/adminProductsPage" element={<AdminProductsPage />} />
                     <Route path="/users" element={<h1>Users</h1>} />
                     <Route path="/add-product" element={<AdminAddProduct />} />
