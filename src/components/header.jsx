@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import UserData from "./userData";
+import { BiShoppingBag } from "react-icons/bi";
 
 export default function Header(){
     return(
@@ -15,6 +17,15 @@ export default function Header(){
             
 
             </div>
+                <div className="absolute right-10 flex items-center justify-center gap-4 px-4 py-2 rounded-lg">
+                    
+                    <Link to="/cart" className="cursor-pointer">
+                        <BiShoppingBag size={30} color="white" />
+                    </Link>
+
+                    <UserData/>
+
+                </div>
         </header>
     )
 }

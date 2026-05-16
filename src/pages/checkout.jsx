@@ -1,16 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getCartTotal } from "../utils/cart.js";
 import { BiMinus } from "react-icons/bi";
 import { BiPlus } from "react-icons/bi";
 import getFormattedPrice from "../utils/price-format.js"
 import { useLocation, useNavigate } from "react-router-dom";
 import CheckoutDetailsModal from "../components/checkOutDetailsModal.jsx";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 
 export default function Checkout(){
     const location = useLocation();
     const [cart, setCart] = useState(location.state || [])
     const navigate = useNavigate();
+
 
     if(location.state ==  null){
         navigate("/products")

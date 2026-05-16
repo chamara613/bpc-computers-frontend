@@ -7,6 +7,9 @@ import Cart from "./cart.jsx";
 import Checkout from "./checkout.jsx"
 import { BiShoppingBag } from "react-icons/bi";
 import { Link } from "react-router-dom";    
+import MyOrdersPage from "./myOrderPage.jsx";
+import SettingsPage from "./settings.jsx";
+
 
 export default function HomePage() {
     return(
@@ -22,8 +25,10 @@ export default function HomePage() {
                 <Route path="/overview/:productId" element={<OverView/>}/>
                 <Route path="/Checkout" element={<Checkout/>}/>
                 <Route path="/*" element={<div>404 Not Found</div>}/>
+                <Route path="/my-orders" element ={<MyOrdersPage/>}/>
+                <Route path="/settings" element = {<SettingsPage/>}/>
             </Routes>
-                <Link to="/cart"><BiShoppingBag size={30} className="text-2xl"/> cart</Link>
+          
             
 
         </div>
