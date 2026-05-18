@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { useGoogleLogin } from "@react-oauth/google";
 
 export default function RegisterPage() {
 
@@ -12,6 +13,33 @@ export default function RegisterPage() {
     const [confirmPassword, setConfirmPassword] = useState("");
 
     const navigate = useNavigate();
+        const googleLogin = useGoogleLogin(
+        {
+            onSuccess:(response) => {
+                axios.post(import.meta.env.VITE_API_URL + "/user/google-login",{token : response.access_token}).then(
+                    (response) => {
+                toast.success("Google login successful");
+                localStorage.setItem("token", response.access_token);
+                if(response.data.role == "admin"){
+                    navigate("/admin");
+                }else{
+                    navigate("/");
+                }
+            }
+            ).catch(
+                (error) => {
+                    console.error(error?.response?.data?.message || "Google login failed. Please try again.");
+                    toast.error("Google login failed. Please try again.");
+                }
+            )
+
+            },
+            onError: (error) => {
+                toast.error("Google login failed. Please try again.");
+            }   
+        }
+    );
+
 
     async function register() {
 
@@ -155,6 +183,7 @@ export default function RegisterPage() {
 
                     {/* Google Button */}
                     <button
+                        onClick={googleLogin}
                         className="w-full mt-4 p-3 rounded-xl
                         border border-white/20
                         text-white hover:bg-white/10

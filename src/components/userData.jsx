@@ -46,6 +46,7 @@ export default function UserData(){
 
                         <div className="w-[150px] h-[50px] flex border border-white justify-between items-center rounded-full overflow-hidden">
                             <img
+                                referrerPolicy="no-referrer"
                                 src={user.image}
                                 className="w-[50px] h-[50px] object-cover"
                                 alt="profile"
