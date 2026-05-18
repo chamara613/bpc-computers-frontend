@@ -12,7 +12,7 @@ export default function ProductCard(props){
             <div className="bg-white main-image absolute top-0 left-0 transition-opacity duration-500">
             <img src ={product.images[0]} alt={product.images} className="h-62.5 object-cover"/>
             </div>
-            <div className="h-37.5 w-full absolute bottom-0 flex border justify-center flex-col p-2">
+            <div className="h-37.5 w-full absolute bottom-0 flex justify-center flex-col p-2">
                 <span className="font-xs opacity-50">{product.productId}</span>
                 <span className="font-semibold text-lg">{product.name}</span> 
                 {

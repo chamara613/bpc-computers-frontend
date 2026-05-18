@@ -23,12 +23,13 @@ export default function ProductPage(){
                     }
                 )
             }
-        }
+        },[loading]
     )
 
     return(
-        <div className="w-full min-h-screen flex items-center justify-center flex-wrap">
-            {
+        //<div className="w-full min-h-screen p-4 sm:p-6 md:p-8 flex flex-wrap justify-center gap-5">
+        <div className="w-full p-4 sm:p-6 md:p-8 flex flex-wrap justify-center gap-5">  
+        {
                 products.map(
                     (item)=>{
                         return(

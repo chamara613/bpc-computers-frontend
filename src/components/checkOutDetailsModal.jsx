@@ -84,6 +84,8 @@ export default function CheckoutDetailsModal(props){
                     Authorization: `Bearer ${token}`,
                 },
             });
+            toast.success("Order placed successfully!");
+            window.location.href = "/my-orders";
 
         }catch(err){
             toast.error(err?.response?.data?.message || "Failed to place the oreder. Please try again.");
@@ -92,31 +94,105 @@ export default function CheckoutDetailsModal(props){
 
     }
     
-
-    return(
-        <>
-             <button 
+return(
+    <>
+        <button
             className="bg-accent text-white px-4 py-2 rounded ml-5 hover:bg-accent/80"
-            onClick = {()=>{
+            onClick={()=>{
                 setIsVisible(true);
             }}
-            >
-                Buy now
-            </button>
-            {isVisible && <div className="w-full h-full bg-black/50 fixed justify-center items-centerz-50 top-0 left-0">
-                <div className="bg-white w-[400px] h-auto rounded-lg p-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                    <input value={firstName} onChange={(e)=>setFirstName(e.target.value)} placeholder="First Name" className="w-[300px] h-[40px] rounded-md p-2 mb-4"/>
-                    <input value={lastName} onChange={(e)=>setLastName(e.target.value)} placeholder="Last Name" className="w-[300px] h-[40px] rounded-md p-2 mb-4"/>
-                    <input value={addressLine1} onChange={(e)=>setAddressLine1(e.target.value)} placeholder="Address Line 1" className="w-[300px] h-[40px] rounded-md p-2 mb-4"/>
-                    <input value={addressLine2} onChange={(e)=>setAddressLine2(e.target.value)} placeholder="Address Line 2" className="w-[300px] h-[40px] rounded-md p-2 mb-4"/>
-                    <input value={city} onChange={(e)=>setCity(e.target.value)} placeholder="City" className="w-[300px] h-[40px] rounded-md p-2 mb-4"/>
-                    <input value={postalCode} onChange={(e)=>setPostalCode(e.target.value)} placeholder="Postal Code" className="w-[300px] h-[40px] rounded-md p-2 mb-4"/>
-                    <input value={phone} onChange={(e)=>setPhone(e.target.value)} placeholder="Phone Number" className="w-[300px] h-[40px] rounded-md p-2 mb-4"/>
-                    <button onClick={placeOrder} className="bg-accent text-white px-4 py-2 rounded hover:bg-accent/80">
-                        Confirm
-                    </button>
+        >
+            Buy now
+        </button>
+
+        {
+            isVisible &&
+
+            <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50 p-4">
+
+                <div
+                    className="bg-white w-full max-w-[400px]
+                    max-h-[90vh] overflow-y-auto
+                    rounded-lg p-6 flex flex-col items-center"
+                >
+
+                    <h1 className="text-xl font-bold mb-5 text-secondary">
+                        Checkout Details
+                    </h1>
+
+                    <input
+                        value={firstName}
+                        onChange={(e)=>setFirstName(e.target.value)}
+                        placeholder="First Name"
+                        className="w-full h-[40px] border rounded-md p-2 mb-4"
+                    />
+
+                    <input
+                        value={lastName}
+                        onChange={(e)=>setLastName(e.target.value)}
+                        placeholder="Last Name"
+                        className="w-full h-[40px] border rounded-md p-2 mb-4"
+                    />
+
+                    <input
+                        value={addressLine1}
+                        onChange={(e)=>setAddressLine1(e.target.value)}
+                        placeholder="Address Line 1"
+                        className="w-full h-[40px] border rounded-md p-2 mb-4"
+                    />
+
+                    <input
+                        value={addressLine2}
+                        onChange={(e)=>setAddressLine2(e.target.value)}
+                        placeholder="Address Line 2"
+                        className="w-full h-[40px] border rounded-md p-2 mb-4"
+                    />
+
+                    <input
+                        value={city}
+                        onChange={(e)=>setCity(e.target.value)}
+                        placeholder="City"
+                        className="w-full h-[40px] border rounded-md p-2 mb-4"
+                    />
+
+                    <input
+                        value={postalCode}
+                        onChange={(e)=>setPostalCode(e.target.value)}
+                        placeholder="Postal Code"
+                        className="w-full h-[40px] border rounded-md p-2 mb-4"
+                    />
+
+                    <input
+                        value={phone}
+                        onChange={(e)=>setPhone(e.target.value)}
+                        placeholder="Phone Number"
+                        className="w-full h-[40px] border rounded-md p-2 mb-5"
+                    />
+
+                    <div className="flex gap-3 w-full">
+
+                        <button
+                            onClick={()=>{
+                                setIsVisible(false)
+                            }}
+                            className="w-1/2 bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500"
+                        >
+                            Cancel
+                        </button>
+
+                        <button
+                            onClick={placeOrder}
+                            className="w-1/2 bg-accent text-white px-4 py-2 rounded hover:bg-accent/80"
+                        >
+                            Confirm
+                        </button>
+
+                    </div>
+
                 </div>
-            </div>}
-        </>
-    );
+
+            </div>
+        }
+    </>
+);
 }

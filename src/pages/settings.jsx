@@ -242,7 +242,7 @@ export default function SettingsPage() {
                 {/* Change Password Button */}
                 <button
                     onClick={changePassword}
-                    className="w-full bg-secondary text-white py-3 rounded-xl hover:bg-secondary/80 transition duration-300"
+                    className="w-full bg-accent text-white py-3 rounded-xl hover:bg-accent/80 transition duration-300"
                 >
                     Change Password
                 </button>

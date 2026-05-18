@@ -1,10 +1,10 @@
-
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
 export default function RegisterPage() {
+
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
@@ -43,35 +43,38 @@ export default function RegisterPage() {
     }
 
     return (
-        <div className="w-full min-h-screen bg-[url('/bg.jpg')] bg-cover bg-center flex">
+        <div className="w-full min-h-screen bg-[url('/bg.jpg')] bg-cover bg-center bg-no-repeat flex flex-col lg:flex-row overflow-auto">
 
             {/* Left Side */}
-            <div className="hidden lg:flex w-1/2 items-center justify-center">
+            <div className="flex w-full lg:w-1/2 items-center justify-center p-5">
                 <img
                     src="/logo.png"
                     alt="logo"
-                    className="w-[500px] drop-shadow-2xl"
+                    className="w-40 sm:w-56 md:w-72 lg:w-[500px] drop-shadow-2xl"
                 />
             </div>
 
             {/* Right Side */}
             <div className="w-full lg:w-1/2 flex items-center justify-center p-5">
 
-                <div className="w-full max-w-md p-8 rounded-3xl
-                bg-white/10 backdrop-blur-xl
-                border border-white/20
-                shadow-2xl">
+                <div
+                    className="w-full max-w-md p-6 sm:p-8 rounded-3xl
+                    bg-white/10 backdrop-blur-xl
+                    border border-white/20
+                    shadow-2xl"
+                >
 
-                    <h1 className="text-4xl font-bold text-white text-center mb-2">
+                    <h1 className="text-2xl sm:text-4xl font-bold text-white text-center mb-2">
                         Create Account
                     </h1>
 
-                    <p className="text-center text-white/70 mb-8">
+                    <p className="text-center text-white/70 mb-8 text-sm sm:text-base">
                         Join BPC Computer
                     </p>
 
                     {/* Names */}
-                    <div className="flex gap-4 mb-5">
+                    <div className="flex flex-col sm:flex-row gap-4 mb-5">
+
                         <input
                             value={firstName}
                             onChange={(e) =>
@@ -79,7 +82,7 @@ export default function RegisterPage() {
                             }
                             type="text"
                             placeholder="First Name"
-                            className="w-1/2 p-3 rounded-xl
+                            className="w-full sm:w-1/2 p-3 rounded-xl
                             bg-white/10 border border-white/20
                             text-white placeholder-white/60
                             outline-none focus:ring-2 focus:ring-cyan-400"
@@ -92,7 +95,7 @@ export default function RegisterPage() {
                             }
                             type="text"
                             placeholder="Last Name"
-                            className="w-1/2 p-3 rounded-xl
+                            className="w-full sm:w-1/2 p-3 rounded-xl
                             bg-white/10 border border-white/20
                             text-white placeholder-white/60
                             outline-none focus:ring-2 focus:ring-cyan-400"
@@ -161,7 +164,7 @@ export default function RegisterPage() {
                     </button>
 
                     {/* Login Link */}
-                    <p className="text-center text-white/70 mt-6">
+                    <p className="text-center text-white/70 mt-6 text-sm sm:text-base">
                         Already have an account?{" "}
                         <Link
                             to="/login"

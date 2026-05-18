@@ -12,7 +12,7 @@ function App() {
   return (
     <>
 
-    <div className="bg-primary flex h-screen w-full text-tertiary">
+    <div className="bg-primary flex min-h-screen w-full text-tertiary">
       <Toaster position="top-right"/>
       <Routes>
         <Route path="/*" element={<HomePage />} />

@@ -112,23 +112,6 @@ export default function AdminOrdersPage() {
               </table>
             </div>
 
-            {/* <div className="flex items-center justify-end gap-3 p-4">
-              <button
-                disabled={pageNumber === 1}
-                onClick={() => setPageNumber(pageNumber - 1)}
-                className="px-4 py-2 rounded bg-slate-300 disabled:opacity-50"
-              >
-                Previous
-              </button>
-
-              <button
-                disabled={pageNumber === totalPages}
-                onClick={() => setPageNumber(pageNumber + 1)}
-                className="px-4 py-2 rounded bg-[var(--color-accent)] text-white disabled:opacity-50"
-              >
-                Next
-              </button>
-            </div> */}
             <div className="w-full h-[50px] absolute bottom-5 left-0 flex justify-center items-center">
                 <div className="w-[400px] h-full bg-white shadow-2xl rounded-full flex items-center justify-between px-2">
                     <button className="bg-accent text-white p-2 rounded-full cursor-pointer hover:bg-accent/80 w-[100px]"

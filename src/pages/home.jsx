@@ -13,7 +13,8 @@ import SettingsPage from "./settings.jsx";
 
 export default function HomePage() {
     return(
-        <div className="w-full h-full bg-dominant ">
+        //<div className="w-full min-h-full bg-dominant relative">
+        <div className="w-full min-h-screen bg-dominant pt-16 lg:pt-25">
 
             <Header/>
             <Routes>
