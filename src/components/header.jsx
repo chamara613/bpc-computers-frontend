@@ -18,15 +18,16 @@ export default function Header(){
 
                 {/* Logo */}
                 <div className="absolute left-10 flex items-center">
-                    <img
-                        src="/logo.png"
-                        alt="Logo"
-                        className="h-20"
-                    />
-                    <h1 className="text-white font-semibold text-lg">
-                        BPC Computers
-                    </h1>
-                   
+                    <Link to="/" className="flex items-center gap-2">
+                        <img
+                            src="/logo.png"
+                            alt="Logo"
+                            className="h-20"
+                        />
+                        <h1 className="text-white font-semibold text-lg">
+                            BPC Computers
+                        </h1>
+                    </Link>
                 </div>
 
                 {/* Navigation */}
@@ -79,7 +80,7 @@ export default function Header(){
                 </button>
 
                 {/* Logo */}
-                <div className="flex items-center gap-2">
+                <Link to="/" className="flex items-center gap-2">
                     <img
                         src="/logo.png"
                         alt="Logo"
@@ -89,7 +90,7 @@ export default function Header(){
                     <h1 className="text-white font-semibold text-lg">
                         BPC Computers
                     </h1>
-                </div>
+                </Link>
 
                 {/* Cart */}
                 <Link to="/cart">
