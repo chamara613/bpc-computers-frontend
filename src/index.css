@@ -18,3 +18,16 @@
     border-radius:20px;
     border: 3px solid transparent;
 }
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}

@@ -8,9 +8,6 @@ import RegisterPage from "./pages/register"
 import ForgetPassword from "./pages/forgetPassword"
 import { GoogleOAuthProvider } from "@react-oauth/google"
 
-//694637553728-bnic0n4aik3235d33oku2i8gtsn97q5u.apps.googleusercontent.com
-
-
 function App() {
 
   return (
@@ -20,7 +17,7 @@ function App() {
       <Toaster position="top-right"/>
       <Routes>
         <Route path="/*" element={<HomePage />} />
-        <Route path="/admin/*" element={<Admin />} />
+        <Route path="/admin/*" element={< Admin/>} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/forgot-password" element={<ForgetPassword />} />

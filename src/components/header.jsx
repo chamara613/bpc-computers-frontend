@@ -14,15 +14,19 @@ export default function Header(){
         <header className="w-full bg-accent fixed top-0 left-0 z-50 shadow-md">
 
             {/* Desktop Header */}
-            <div className="hidden lg:flex h-25 justify-center items-center relative">
+            <div className="hidden lg:flex h-20 justify-center items-center relative">
 
                 {/* Logo */}
                 <div className="absolute left-10 flex items-center">
                     <img
-                        src="logo.png"
+                        src="/logo.png"
                         alt="Logo"
                         className="h-20"
                     />
+                    <h1 className="text-white font-semibold text-lg">
+                        BPC Computers
+                    </h1>
+                   
                 </div>
 
                 {/* Navigation */}
@@ -77,7 +81,7 @@ export default function Header(){
                 {/* Logo */}
                 <div className="flex items-center gap-2">
                     <img
-                        src="logo.png"
+                        src="/logo.png"
                         alt="Logo"
                         className="h-20"
                     />

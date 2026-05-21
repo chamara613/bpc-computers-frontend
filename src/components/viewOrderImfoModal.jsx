@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import getFormattedDate from "../utils/date-format";
 import getFormattedPrice from "../utils/price-format";
@@ -67,65 +66,65 @@ export default function ViewOrderInfoModal(props) {
                                 {getFormattedDate(order.date)}
                             </h2>
 
- <div className="mt-5 flex gap-6 items-start">
+                        <div className="mt-5 flex gap-6 items-start">
 
-    {/* Left Side */}
-    <div className="flex-1">
+                            {/* Left Side */}
+                            <div className="flex-1">
 
-        <div>
-            <h1 className="text-lg font-semibold text-white">
-                {order.firstName + " " + order.lastName}
-            </h1>
+                                <div>
+                                    <h1 className="text-lg font-semibold text-white">
+                                        {order.firstName + " " + order.lastName}
+                                    </h1>
 
-            <h2 className="text-sm text-white/80">
-                {order.email}
-            </h2>
-        </div>
+                                    <h2 className="text-sm text-white/80">
+                                        {order.email}
+                                    </h2>
+                                </div>
 
-        <div className="mt-5">
-            <h1 className="text-2xl font-bold text-white">
-                {getFormattedPrice(order.total)}
-            </h1>
+                                <div className="mt-5">
+                                    <h1 className="text-2xl font-bold text-white">
+                                        {getFormattedPrice(order.total)}
+                                    </h1>
 
-            <div className="flex items-center gap-3 mt-2">
+                                    <div className="flex items-center gap-3 mt-2">
 
-                <span className="bg-white text-accent px-3 py-1 rounded-full text-xs font-semibold">
-                    {order.status}
-                </span>
+                                        <span className="bg-white text-accent px-3 py-1 rounded-full text-xs font-semibold">
+                                            {order.status}
+                                        </span>
 
-                <select
-                    value={status}
-                    onChange={(e) => setStatus(e.target.value)}
-                    className="bg-white text-black rounded-lg px-2 py-1"
-                >
-                    <option value="pending">Pending</option>
-                    <option value="Shipped">Shipped</option>
-                    <option value="Delivered">Delivered</option>
-                    <option value="Cancelled">Cancelled</option>
-                </select>
+                                        <select
+                                            value={status}
+                                            onChange={(e) => setStatus(e.target.value)}
+                                            className="bg-white text-black rounded-lg px-2 py-1"
+                                        >
+                                            <option value="pending">Pending</option>
+                                            <option value="Shipped">Shipped</option>
+                                            <option value="Delivered">Delivered</option>
+                                            <option value="Cancelled">Cancelled</option>
+                                        </select>
 
-            </div>
-        </div>
+                                    </div>
+                                </div>
 
-    </div>
+                            </div>
 
-    {/* Right Side Notes */}
-    <div className="w-[300px] bg-slate-100 rounded-xl p-4">
+                        {/* Right Side Notes */}
+                            <div className="w-[300px] bg-slate-100 rounded-xl p-4">
 
-        <h1 className="text-lg font-semibold text-secondary mb-2">
-            Notes
-        </h1>
+                                <h1 className="text-lg font-semibold text-secondary mb-2">
+                                    Notes
+                                </h1>
 
-        <textarea
-            value={notes}
-            onChange={(e) => setNotes(e.target.value)}
-            placeholder="Add order notes..."
-            className="w-full h-[100px] rounded-lg p-3 border border-slate-300 outline-none resize-none text-black bg-white"
-        />
+                                <textarea
+                                    value={notes}
+                                    onChange={(e) => setNotes(e.target.value)}
+                                    placeholder="Add order notes..."
+                                    className="w-full h-[100px] rounded-lg p-3 border border-slate-300 outline-none resize-none text-black bg-white"
+                                />
 
-    </div>
+                            </div>
 
-</div>
+                        </div>
                         </div>
 
                         {/* Items Section */}

@@ -71,7 +71,7 @@ export default function UserData(){
                                     }
                                   
                                 }
-                                className="bg-accent text-white"
+                                className="bg-accent/50 text-white"
                             >
                                 <option value="me" className="bg-accent p-2">{user.firstName}</option>
                                 <option value="orders" className="bg-accent p-2">My orders</option>

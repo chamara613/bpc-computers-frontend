@@ -9,18 +9,21 @@ import { BiShoppingBag } from "react-icons/bi";
 import { Link } from "react-router-dom";    
 import MyOrdersPage from "./myOrderPage.jsx";
 import SettingsPage from "./settings.jsx";
+import LandingPage from "./landingPage.jsx";
+import AboutPage from "./about.jsx";
+import ContactPage from "./contact.jsx";
 
 
 export default function HomePage() {
     return(
         //<div className="w-full min-h-full bg-dominant relative">
-        <div className="w-full min-h-screen bg-dominant pt-16 lg:pt-25">
+        <div className="w-full min-h-screen bg-dominant pt-16 lg:pt-20">
 
             <Header/>
             <Routes>
-                <Route path="/" element={<div>Home page content</div>}/>
-                <Route path="/about" element={<div>About page content</div>}/>
-                <Route path="/contact" element={<div>Contact page content</div>}/>
+                <Route path="/" element={<LandingPage/>}/>
+                <Route path="/about" element={<AboutPage/>}/>
+                <Route path="/contact" element={<ContactPage/>}/>
                 <Route path="/products" element={<ProductPage/>}/>
                 <Route path="/cart" element={<Cart/>}/>
                 <Route path="/overview/:productId" element={<OverView/>}/>

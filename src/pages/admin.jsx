@@ -7,6 +7,7 @@ import { LuUsersRound } from "react-icons/lu";
 import AdminAddProduct from "./admin/adminAddProduct.jsx";
 import AdminUpdateProduct from "./admin/adminUpdateProduct.jsx";
 import AdminOrdersPage from "./admin/adminOrdersPage.jsx";
+import AdminUsersPage from "./admin/adminUsersPage.jsx";
 
 export default function Admin() {
     return(
@@ -22,11 +23,14 @@ export default function Admin() {
                 <Link className="flex w-full p-2.5 gap-3 items-center hover:bg-white hover:text-accent" to = "/admin/users"><LuUsersRound /> Users</Link>
             </div>
             <div className="w-[calc(100%-300px)] h-full p-4 rounded-2xl bg-white border-8 border-accent">
+
+                
            
                 <Routes>
+                    <Route path="/" element={<AdminOrdersPage />} />
                     <Route path="/orders" element={<AdminOrdersPage/>} />
                     <Route path="/adminProductsPage" element={<AdminProductsPage />} />
-                    <Route path="/users" element={<h1>Users</h1>} />
+                    <Route path="/users" element={<AdminUsersPage />} />
                     <Route path="/add-product" element={<AdminAddProduct />} />
                     <Route path="/update-product" element={<AdminUpdateProduct />} />
                 </Routes>
