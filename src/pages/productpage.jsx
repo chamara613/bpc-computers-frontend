@@ -46,7 +46,7 @@ export default function ProductPage(){
     }, [loading, searchQuery])
 
     return(
-    <div className="w-full px-4 sm:px-6 md:px-8 pb-8 flex flex-wrap justify-center gap-4 sm:gap-5">
+    <div className="w-full px-4 sm:px-6 md:px-8 pb-8">
 
         {loading && <LoadingAnimation/>}
 
@@ -77,7 +77,7 @@ export default function ProductPage(){
         </div>
 
         {/* Products */}
-        <div className="w-full flex flex-wrap justify-center gap-4 sm:gap-5 mt-2">
+        <div className="w-full flex flex-wrap justify-center gap-4 sm:gap-5 mt-6">
 
             {
                 products.map((item) => (
