@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function UserData(){
     const [user , setUser] = useState(null)
     const [state , setState] = useState("me")
+    const navigate = useNavigate();
+
     useEffect(
         ()=>{
             const token = localStorage.getItem("token")
@@ -21,7 +23,7 @@ export default function UserData(){
                 ).catch(
                         ()=>{
                             localStorage.removeItem("token")
-                            window.location.href = "/login"
+                            navigate("/login")
                         }
                     )
 
@@ -57,15 +59,15 @@ export default function UserData(){
                                 onChange={
                                     (e)=>{
                                         const value = e.target.value;
-                                        if(e.target.value == "orders"){
-                                            window.location.href="/my-orders"
+                                        if(value === "orders"){
+                                            navigate("/my-orders")
                                         }
-                                        if(e.target.value == "settings"){
-                                            window.location.href="/settings"
+                                        if(value === "settings"){
+                                            navigate("/settings")
                                         }
-                                        if(e.target.value == "logout"){
+                                        if(value === "logout"){
                                             localStorage.removeItem("token")
-                                            window.location.href="/login"
+                                            navigate("/login")
                                         }
                                         setState("me")
                                     }

@@ -39,7 +39,7 @@ export default function CheckoutDetailsModal(props){
             ).catch(
                         ()=>{
                             localStorage.removeItem("token")
-                            window.location.href = "/login"
+                            navigate("/login")
                         }
                     )
         },[]
@@ -53,8 +53,8 @@ export default function CheckoutDetailsModal(props){
         const token = localStorage.getItem("token");
 
         if(token == null){
-            toast.error("You must be logged in to plase an order");
-            window.location.href = "/login";
+            toast.error("You must be logged in to place an order");
+            navigate("/login");
             return;
         }
 
@@ -85,7 +85,7 @@ export default function CheckoutDetailsModal(props){
                 },
             });
             toast.success("Order placed successfully!");
-            window.location.href = "/my-orders";
+            navigate("/my-orders");
 
         }catch(err){
             toast.error(err?.response?.data?.message || "Failed to place the oreder. Please try again.");
