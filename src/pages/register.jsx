@@ -43,6 +43,17 @@ export default function RegisterPage() {
 
     async function register() {
 
+        if (
+            !firstName.trim() ||
+            !lastName.trim() ||
+            !email.trim() ||
+            !password ||
+            !confirmPassword
+        ) {
+            toast.error("Please fill in all fields.");
+            return;
+        }
+
         if(password !== confirmPassword){
             toast.error("Passwords do not match");
             return;

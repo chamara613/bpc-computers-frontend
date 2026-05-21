@@ -39,6 +39,11 @@ export default function LoginPage() {
     );
 
     async function login() {
+        if (!email.trim() || !password) {
+            toast.error("Please enter both email and password.");
+            return;
+        }
+
         try {
             const response = await axios.post(
                 import.meta.env.VITE_API_URL + "/user/login",
@@ -47,6 +52,11 @@ export default function LoginPage() {
                     password
                 }
             );
+
+            if (!response?.data?.token) {
+                toast.error("Login failed: invalid credentials.");
+                return;
+            }
 
             toast.success("Logged in successfully");
 
