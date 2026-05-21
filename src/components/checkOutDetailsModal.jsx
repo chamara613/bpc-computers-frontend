@@ -111,7 +111,7 @@ return(
             <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50 p-4">
 
                 <div
-                    className="bg-white w-full max-w-[400px]
+                    className="bg-white w-full max-w-100
                     max-h-[90vh] overflow-y-auto
                     rounded-lg p-6 flex flex-col items-center"
                 >
@@ -124,49 +124,49 @@ return(
                         value={firstName}
                         onChange={(e)=>setFirstName(e.target.value)}
                         placeholder="First Name"
-                        className="w-full h-[40px] border rounded-md p-2 mb-4"
+                        className="w-full h-10 border rounded-md p-2 mb-4"
                     />
 
                     <input
                         value={lastName}
                         onChange={(e)=>setLastName(e.target.value)}
                         placeholder="Last Name"
-                        className="w-full h-[40px] border rounded-md p-2 mb-4"
+                        className="w-full h-10 border rounded-md p-2 mb-4"
                     />
 
                     <input
                         value={addressLine1}
                         onChange={(e)=>setAddressLine1(e.target.value)}
                         placeholder="Address Line 1"
-                        className="w-full h-[40px] border rounded-md p-2 mb-4"
+                        className="w-full h-10 border rounded-md p-2 mb-4"
                     />
 
                     <input
                         value={addressLine2}
                         onChange={(e)=>setAddressLine2(e.target.value)}
                         placeholder="Address Line 2"
-                        className="w-full h-[40px] border rounded-md p-2 mb-4"
+                        className="w-full h-10 border rounded-md p-2 mb-4"
                     />
 
                     <input
                         value={city}
                         onChange={(e)=>setCity(e.target.value)}
                         placeholder="City"
-                        className="w-full h-[40px] border rounded-md p-2 mb-4"
+                        className="w-full h-10 border rounded-md p-2 mb-4"
                     />
 
                     <input
                         value={postalCode}
                         onChange={(e)=>setPostalCode(e.target.value)}
                         placeholder="Postal Code"
-                        className="w-full h-[40px] border rounded-md p-2 mb-4"
+                        className="w-full h-10 border rounded-md p-2 mb-4"
                     />
 
                     <input
                         value={phone}
                         onChange={(e)=>setPhone(e.target.value)}
                         placeholder="Phone Number"
-                        className="w-full h-[40px] border rounded-md p-2 mb-5"
+                        className="w-full h-10 border rounded-md p-2 mb-5"
                     />
 
                     <div className="flex gap-3 w-full">

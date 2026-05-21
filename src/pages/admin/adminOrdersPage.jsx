@@ -12,6 +12,7 @@ export default function AdminOrdersPage() {
   const [pageSize, setPageSize] = useState(10);
   const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -33,7 +34,7 @@ export default function AdminOrdersPage() {
         console.error("Error fetching orders:", error);
         setLoading(false);
       });
-  }, [pageNumber, pageSize]);
+  }, [pageNumber, pageSize, refreshKey]);
 
   return (
     <div className="w-full max-h-full overflow-y-scroll p-6">
@@ -104,7 +105,7 @@ export default function AdminOrdersPage() {
                       </td>
 
                         <td className="px-6 py-4">
-                            <ViewOrderInfoModal order = {order}/>
+                            <ViewOrderInfoModal order={order} onUpdate={() => setRefreshKey((prev) => prev + 1)} />
                         </td>
                     </tr>
                   ))}

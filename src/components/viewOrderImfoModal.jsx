@@ -11,6 +11,8 @@ export default function ViewOrderInfoModal(props) {
     const order = props.order;
     const [status , setStatus] = useState(order.status)
     const [notes, setNotes] = useState(order.notes || "")
+    const onUpdate = props.onUpdate;
+
     async function handleChenge() {
         try{
             const token = localStorage.getItem("token")
@@ -24,8 +26,10 @@ export default function ViewOrderInfoModal(props) {
             })
 
             toast.success("Order updated successfully")
-            window.location.reload()
-
+            setIsVisible(false)
+            if (typeof onUpdate === "function") {
+                onUpdate();
+            }
 
         }catch{
             toast.error("Failed to update order")

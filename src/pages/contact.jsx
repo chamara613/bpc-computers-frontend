@@ -1,11 +1,46 @@
-
-import {
-    FaMapMarkerAlt,
-    FaPhoneAlt,
-    FaEnvelope
-} from "react-icons/fa";
+import {FaMapMarkerAlt,FaPhoneAlt,FaEnvelope} from "react-icons/fa";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 
 export default function ContactPage() {
+
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        subject: "",
+        message: ""
+    });
+
+    function sendEmail(e) {
+
+        e.preventDefault();
+
+        emailjs.send(
+            "service_1z3p935", // your service ID
+            "template_fz5pwij", // replace with template ID
+            formData,
+            "gQkW8tzNwS6kbNB6N" // replace with public key
+        )
+        .then(() => {
+
+            toast.success("Message Sent Successfully!");
+
+            setFormData({
+                name: "",
+                email: "",
+                subject: "",
+                message: ""
+            });
+
+        })
+        .catch((error) => {
+
+            console.log(error);
+            toast.error("Failed to send message");
+
+        });
+    }
 
     return (
         <div className="w-full min-h-screen bg-dominant">
@@ -80,7 +115,7 @@ export default function ContactPage() {
                                     </h2>
 
                                     <p className="text-slate-500 text-sm sm:text-base break-all">
-                                        pasindu613@gmail.com
+                                        pasinduc613@gmail.com
                                     </p>
                                 </div>
 
@@ -92,7 +127,6 @@ export default function ContactPage() {
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6660.4588403894695!2d79.90471357819261!3d6.970021881380269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2599250f53c1d%3A0x646e6fe43eca56f3!2sFaculty%20of%20Computing%20and%20Technology%20-%20University%20of%20Kelaniya!5e0!3m2!1sen!2slk!4v1779207588862!5m2!1sen!2slk"
                                     width="100%"
                                     height="300"
-                                    allowFullScreen=""
                                     loading="lazy"
                                     className="border-0 rounded-2xl"
                                 ></iframe>
@@ -109,33 +143,68 @@ export default function ContactPage() {
                             Send Message
                         </h1>
 
-                        <form className="space-y-4 sm:space-y-5">
+                        <form
+                            onSubmit={sendEmail}
+                            className="space-y-4 sm:space-y-5"
+                        >
 
                             <input
                                 type="text"
                                 placeholder="Your Name"
                                 className="w-full p-3 sm:p-4 border rounded-xl outline-none focus:ring-2 focus:ring-accent"
+                                value={formData.name}
+                                onChange={(e) =>
+                                    setFormData({
+                                        ...formData,
+                                        name: e.target.value
+                                    })
+                                }
+                                required
                             />
 
                             <input
                                 type="email"
                                 placeholder="Your Email"
                                 className="w-full p-3 sm:p-4 border rounded-xl outline-none focus:ring-2 focus:ring-accent"
+                                value={formData.email}
+                                onChange={(e) =>
+                                    setFormData({
+                                        ...formData,
+                                        email: e.target.value
+                                    })
+                                }
+                                required
                             />
 
                             <input
                                 type="text"
                                 placeholder="Subject"
                                 className="w-full p-3 sm:p-4 border rounded-xl outline-none focus:ring-2 focus:ring-accent"
+                                value={formData.subject}
+                                onChange={(e) =>
+                                    setFormData({
+                                        ...formData,
+                                        subject: e.target.value
+                                    })
+                                }
                             />
 
                             <textarea
                                 rows="5"
                                 placeholder="Your Message"
                                 className="w-full p-3 sm:p-4 border rounded-xl outline-none focus:ring-2 focus:ring-accent"
+                                value={formData.message}
+                                onChange={(e) =>
+                                    setFormData({
+                                        ...formData,
+                                        message: e.target.value
+                                    })
+                                }
+                                required
                             ></textarea>
 
                             <button
+                                type="submit"
                                 className="w-full bg-accent text-white py-3 sm:py-4 rounded-xl hover:bg-secondary transition"
                             >
                                 Send Message
